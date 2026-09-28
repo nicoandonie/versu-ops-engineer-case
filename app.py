@@ -8,7 +8,7 @@ from openai import OpenAI
 # -------------------------
 
 df = pd.read_csv("catalogo_notco.csv")
-img = Image.open("versu_logo.png")
+img = Image.open("palta.png")
 lista_ops=pd.read_csv("lista_ops.csv")
 # Configuración de página
 # Debe ir antes de usar session_state u otros elementos de Streamlit
