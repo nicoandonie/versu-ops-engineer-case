@@ -1,0 +1,8 @@
+Librerías a instalar
+Streamlit
+Pandas
+matplotlib
+Pillow
+openai
+numpy
+linregress
