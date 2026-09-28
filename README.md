@@ -1,68 +1,58 @@
-README
+Versu Ops Engineer Case
 
-Esta carpeta contiene una serie de elementos los cuales son útiles para el caso 1 y el caso 2. Para el caso 1 los elementos necesarios son: caso parte 1.ipynb, clientes.csv, uso_mensual.csv y README.md. Para el caso 2 los archivos necesarios son app.py (donde se corre el código), catalogo_notco.csv, prompt_base_versu.txt, prompt_notco.txt, mensajes_prueba.md, levantamiento_notco.md, versu_logo.png, una carpeta .streamlit con el archivo .streamlit\secrets.toml y README.md
+Esta aplicación reúne los resultados de los dos casos desarrollados para Versu en una sola interfaz web.
 
-## Como ejecutar
+# Resultados Ops
 
-nstalar las dependencias:
+Esta sección presenta el resultado del análisis de cartera de clientes y permite identificar rápidamente qué cuentas requieren atención prioritaria.
+Los clientes se muestran ordenados según su nivel de prioridad e incluyen información relevante para la toma de decisiones, como:
 
-pip install -r requirements.txt
+- Puntaje de prioridad.
+- Motivo de contacto.
+- Meses sobre el límite definido.
+- Días de pago atrasado.
+- Plan actual del cliente.
 
-Luego ejecutar:
+El objetivo es transformar el análisis de datos en una herramienta simple y accionable para el equipo de Operaciones.
 
-streamlit run app.py
+# Agente NotCo
 
-Para utilizar el Agente de NotCo se necesita una API Key de OpenAI configurada en:
+La aplicación también incluye Nota, un agente de atención al cliente diseñado para NotCo.
+El agente fue configurado a partir del levantamiento comercial y del catálogo disponible, considerando reglas como:
 
-.streamlit/secrets.toml
+- Responder consultas de productos, precios, stock, compras, envíos y postventa.
+- Mantener un tono cercano y alineado con la marca.
+- No inventar información que no esté disponible.
+- Derivar a una persona del equipo cuando corresponda, por ejemplo ante consultas de salud, nutrición, problemas con pedidos o solicitudes mayoristas.
+- Incentivar de forma natural la compra de packs cuando exista una alternativa disponible.
+- Guiar al cliente hacia la tienda online cuando exista intención de compra.
 
-con el formato:
+# Cómo usar la aplicación
 
-OPENAI_API_KEY = "tu_api_key"
+La plataforma está dividida en cuatro pestañas:
 
-La API Key no está incluida en el repositorio.
+### Prompt
+Permite revisar y editar las instrucciones utilizadas por el agente Nota.
 
-## Caso 1 - Cartera de clientes:
+### Chat
+Permite conversar directamente con el agente y probar su comportamiento frente a distintas consultas.
 
-La herramienta analiza el comportamiento de los clientes en los últimos 4 meses, revisando parámetros y detectando los clientes que necesitan atención.
+### Resultados Ops
+Muestra los clientes que requieren atención, ordenados por nivel de prioridad y acompañados por las principales razones para contactarlos.
 
-Se detectan señales como las variaciones en las conversaciones, uso del panel, cambios en los ingresos, errores de integración, comportamiento de clientes nuevos con respecto a clientes antiguos. Cada señal se pondera definiendo finalmente el nivel de prioridad que hay en la atención a ese cliente.
+### README
+Resume el objetivo y funcionamiento de la aplicación.
 
-Los criterios de clasificación pueden modificarse desde la herramienta sin cambiar el código.
-
-Los valores faltantes no se asumieron como cero, en un caso se detectó que esa información no estaba porque los clientes aún estaban en etapa de implementación.
-
-Se muestran los resultados en tablas y gráficos fáciles de entender, el foco principal es obtener resultados concretos.
-
-
-## Caso 2 - Agente NotCo
-
-Se realizó un agente de IA llamado Nota a partir de una API de ChatGPT modelo gpt-5.6-luna. 
-
-El Objetivo de este caso es implementar un agente IA para la atención al cliente con el objetivo de ayudar a los clientes de NotCo poder tener una ayuda en sus compras.
-
-Pasos para la implementación de esta API:
-
-Definir el prompt a partir de las necesidades de NotCo y el prompt base de Versu. El prompt debe contemplar solo ofrecer productos del catálogo
-
-El agente debe hablar con un tono cercano, no aceptar devoluciones de productos pero sí devoluciones de dinero. Delegar a un trabajador en caso que se pregunte por información nutricional o se pidan descuentos al por mayor, entre otras reglas del prompt.
-
-Se trabajó con Streamlit para poder generar una página web, en el código de python se llamó a catalogo_notco.csv y a promt_notco.txt. 
-
-Dentro de la aplicación puedes ver y editar el prompt del agente además de conversar directamente con Nota.
- 
 ## Decisiones y supuestos
 
-No se asumieron medios de pago, horario límite para despacho en el día ni condiciones comerciales para empresas/restoranes, ya que esa información quedó pendiente en el levantamiento.
+- No se asumieron datos que no estuvieran disponibles en los archivos entregados.
+- En el caso del agente NotCo, no se inventaron medios de pago, horarios límite para despacho en el día ni condiciones comerciales para empresas o restoranes.
+- En el análisis de cartera, los valores faltantes no se interpretaron automáticamente como cero cuando podían corresponder a clientes que aún estaban en etapa de implementación.
+- Los días de pago atrasado se muestran como información adicional para el equipo de Operaciones y no modifican el puntaje de prioridad.
 
-La compra se deriva al sitio web de NotCo y el agente no confirma pagos ni compras que realmente no pueda ejecutar.
+## Objetivo
 
-# Qué no se implementó
+El objetivo de esta aplicación es presentar en una sola página web dos herramientas orientadas a Operaciones:
 
-No se implementó una integración real con el sistema de pedidos de NotCo ni generación automática de carritos.
-
-Como siguiente mejora implementaría una búsqueda del catálogo mediante una herramienta dedicada en vez de enviar el catálogo completo dentro del prompt, junto con una evaluación automática de aprobado/reprobado para cada prueba.
-
-# Tecnologías usadas
-
-Python, streamlit, Pandas, OpenAI API, mathPlotLib, PIL, Numpy
+1. Una vista priorizada de clientes que requieren atención.
+2. Un agente de atención al cliente configurable y probado sobre un caso real.
