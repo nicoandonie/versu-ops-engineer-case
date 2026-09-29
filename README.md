@@ -15,6 +15,11 @@ Los clientes se muestran ordenados según su nivel de prioridad e incluyen infor
 
 El objetivo es transformar el análisis de datos en una herramienta simple y accionable para el equipo de Operaciones.
 
+Dentro de la página web se presentan 3 pestañas:
+- Objetivo de análisis: muestra los objetivos a cumplir.
+- Dashboard: muestra de manera gráfica los clientes, mostrando gráficos e identificando principales problemáticas.
+- A quien llamar: muestra un listado de todos los clientes según su nivel de prioridad pudiendo identificar las necesidades con la opción de cubrirlas y agregar notas del cliente.
+
 # Agente NotCo
 
 La aplicación también incluye Nota, un agente de atención al cliente diseñado para NotCo.
@@ -29,16 +34,14 @@ El agente fue configurado a partir del levantamiento comercial y del catálogo d
 
 # Cómo usar la aplicación
 
-La plataforma está dividida en cuatro pestañas:
+La plataforma está dividida en tres pestañas:
 
-### Prompt
-Permite revisar y editar las instrucciones utilizadas por el agente Nota.
 
-### Chat
-Permite conversar directamente con el agente y probar su comportamiento frente a distintas consultas.
+### Cartera de clientes
+Tiene 3 subpestañas en las cuales se ven los objetivos del análisis, Dashboard y A quien llamar
 
-### Resultados Ops
-Muestra los clientes que requieren atención, ordenados por nivel de prioridad y acompañados por las principales razones para contactarlos.
+### Nota - Agente de NotCo
+Tiene 2 subpestañas la cual una es el prompt con el que funciona Nota que es editable en la misma página web y el chat que es donde uno puede conversar con Nota para preguntar de la disponibilidad.
 
 ### README
 Resume el objetivo y funcionamiento de la aplicación.
