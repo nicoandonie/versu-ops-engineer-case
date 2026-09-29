@@ -1,6 +1,6 @@
 Versu Ops Engineer Case
 
-Esta aplicación reúne los resultados de los dos casos desarrollados para Versu en una sola interfaz web.
+Esta aplicación reúne los resultados de los dos casos desarrollados para Versu en una sola interfaz web. Los análisis y la programación de la interfaz fue toda desarrollada en python 
 
 # Resultados Ops
 
@@ -56,3 +56,8 @@ El objetivo de esta aplicación es presentar en una sola página web dos herrami
 
 1. Una vista priorizada de clientes que requieren atención.
 2. Un agente de atención al cliente configurable y probado sobre un caso real.
+
+## Mejoras sugeridas
+
+- Procesamiento automático de nuevos datos: como mejora futura, la aplicación podría permitir cargar directamente los archivos clientes.csv y uso.csv, ejecutar automáticamente el análisis de cartera y generar lista_ops en tiempo real. Esto permitiría actualizar prioridades, señales de riesgo, oportunidades de upsell y resultados sin necesidad de reprocesar los datos previamente en un notebook.
+- Estimación de tiempos: la aplicación podría incluir los posibles tiempos que incluye cada tarea de manera que se calcule el tiempo total que se necesita para la atención de un cliente, eso podría generar menores retrasos en la atención y mayor eficiencia operativa.
