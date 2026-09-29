@@ -1346,19 +1346,21 @@ def main():
 
                 if cliente["pts_panel"] > 0:
 
-                    julio = cliente["sesiones_panel_2026-07"]
-                    agosto = cliente["sesiones_panel_2026-08"]
+                    sesiones_mes_1 = cliente["sesiones_panel_mes_1"]
+                    sesiones_mes_2 = cliente["sesiones_panel_mes_2"]
+
+                    mes_1 = cliente["mes_comparacion_1"]
+                    mes_2 = cliente["mes_comparacion_2"]
 
                     necesidades.append({
                         "tipo": "Actividad en panel",
                         "nivel": cliente["nivel_panel"],
                         "puntos": int(cliente["pts_panel"]),
                         "detalle": (
-                            f"Registra {julio:.0f} sesiones en julio "
-                            f"y {agosto:.0f} sesiones en agosto."
+                            f"Registra {sesiones_mes_1:.0f} sesiones en {mes_1} "
+                            f"y {sesiones_mes_2:.0f} sesiones en {mes_2}."
                         )
                     })
-
 
                 # ==========================================
                 # NIVEL TÉCNICO
